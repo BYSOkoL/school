@@ -23,7 +23,7 @@ public class Main {
                     continue;
                 }
                 choice = sc.nextInt();
-                sc.nextLine();
+                // sc.nextLine();
                 break;
             }
             switch (choice) {
@@ -36,17 +36,17 @@ public class Main {
                     }
                     sc.nextLine();
                     System.out.println("Ведите название :");
-                    if (sc.nextLine().trim().isBlank()) {
-                        System.out.println("Не может быть пустым");
-                        break;
-                    }
                     String title = sc.nextLine();
-                    System.out.println("Введите автора :");
-                    if (sc.nextLine().trim().isBlank()) {
+                    if (title.trim().isBlank()) {
                         System.out.println("Не может быть пустым");
                         break;
                     }
+                    System.out.println("Введите автора :");
                     String author = sc.nextLine();
+                    if (author.trim().isBlank()) {
+                        System.out.println("Не может быть пустым");
+                        break;
+                    }
                     System.out.println("Введите год :");
                     int year = 0;
                     if (sc.hasNextInt()) {
