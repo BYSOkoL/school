@@ -3,11 +3,11 @@ package school.sorokin.javacore.oop;
 import java.util.Objects;
 
 public class Book extends Publication{
-    private String ISBN;
+    private String isbn;
 
-    public Book(String title, String author, int year, String ISBN) {
+    public Book(String title, String author, int year, String isbn) {
         super(title, author, year);
-        this.ISBN = ISBN;
+        this.isbn = isbn;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Book extends Publication{
                 "title='" + getTitle() + '\'' +
                 ", author='" + getAuthor() + '\'' +
                 ", year=" + getYear() +
-                ", ISBN='" + ISBN + '\'' +
+                ", ISBN='" + isbn + '\'' +
                 '}' + '\n';
     }
 
@@ -30,20 +30,20 @@ public class Book extends Publication{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Book book = (Book) o;
-        return Objects.equals(ISBN, book.ISBN);
+        return Objects.equals(isbn, book.isbn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), ISBN);
+        return Objects.hash(super.hashCode(), isbn);
     }
 
     public String getISBN() {
-        return ISBN;
+        return isbn;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setISBN(String isbn) {
+        this.isbn = this.isbn;
     }
 
     @Override
