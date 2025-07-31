@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Library lib = new Library();
+        int choice;
         while (true) {
             System.out.println("""
                      1. Добавить новую публикацию.
@@ -14,12 +15,17 @@ public class Main {
                      4. Вывести общее количество публикаций (используя статический метод).
                      0. Выход.
                     """);
-            if (!sc.hasNextInt()) {
-                System.out.println("Повторите попытку.");
-                sc.next();
+            while (true) {
+                System.out.println("Выберите номер необходимого пункта");
+                if (!sc.hasNextInt()) {
+                    System.out.println("Неверный ввод. Пожалуйста, введите число.");
+                    sc.next();
+                    continue;
+                }
+                choice = sc.nextInt();
+                sc.nextLine();
+                break;
             }
-            int choice = sc.nextInt();
-            sc.nextLine();
             switch (choice) {
                 case 1:
                     System.out.println("Выберите тип публикации: 1 - Book, 2 - Magazine, 3 - Newspaper");
@@ -30,8 +36,16 @@ public class Main {
                     }
                     sc.nextLine();
                     System.out.println("Ведите название :");
+                    if (sc.nextLine().trim().isBlank()) {
+                        System.out.println("Не может быть пустым");
+                        break;
+                    }
                     String title = sc.nextLine();
                     System.out.println("Введите автора :");
+                    if (sc.nextLine().trim().isBlank()) {
+                        System.out.println("Не может быть пустым");
+                        break;
+                    }
                     String author = sc.nextLine();
                     System.out.println("Введите год :");
                     int year = 0;
